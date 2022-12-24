@@ -3,16 +3,11 @@
  */
 package com.example.reto.controllers;
 
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
 
-import org.hibernate.annotations.Parameter;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,9 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.reto.entity.Affiliates;
 import com.example.reto.entity.Appoinments;
 import com.example.reto.service.AppoinmentsService;
@@ -121,16 +114,16 @@ public class AppoinmentsController {
 	
 	
 	
-//	@RequestMapping (value ="{date}", method = RequestMethod.GET)
-//	
-//	public ResponseEntity<?>getAppoinmentsByDate (@PathVariable LocalDate date)
-//	
-//	{
-//        List<Appoinments> citasPorFecha = appoinmentsServiceImpl.getAppoinmentsByDate(date);
-//        
-//        return ResponseEntity.ok(citasPorFecha);
-//        
-//    }
+	@RequestMapping (value ="/listadoporfecha/{date}", method = RequestMethod.GET)
+	
+	public ResponseEntity<?>listarPorFecha (@PathVariable String date)
+	
+	{
+        List<Appoinments> citasPorFecha = this.appoinmentsServiceImpl.findByDateOrderByIdAffiliateAsc(date);
+        
+        return ResponseEntity.ok(citasPorFecha);
+        
+    }
 		
 	
 	

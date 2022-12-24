@@ -3,9 +3,9 @@
  */
 package com.example.reto.service;
 
+
 import java.time.LocalDate;
 import java.util.List;
-
 import com.example.reto.entity.Affiliates;
 import com.example.reto.entity.Appoinments;
 
@@ -36,9 +36,9 @@ public interface AppoinmentsService {
 	//Método que permite consultar una cita por id
 	Appoinments consultarPorId (int id);
 	
-//	//Método que permite consultar una cita por fecha
-//	List<Appoinments> getAppoinmentsByDate(LocalDate date);
-//	//Appoinments consultarFecha (Date date);
+   //Método que permite consultar una cita por fecha
+	List<Appoinments> findByDateOrderByIdAffiliateAsc(String date);
+	
 	
 	//Método que permite consultar una cita por afiliado
 	List<Appoinments> findByIdAffiliate(Affiliates idAffiliate);

@@ -4,7 +4,6 @@
 package com.example.reto.service.impl;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -63,6 +62,15 @@ public class AppoinmentsServiceImpl implements AppoinmentsService {
 	public List<Appoinments> findByIdAffiliate(Affiliates idAffiliate) {
 		return this.appoinmentsRepository.findByIdAffiliate(idAffiliate);
 	}
+
+	@Override
+	public List<Appoinments> findByDateOrderByIdAffiliateAsc(String date) {
+		LocalDate horaCita = LocalDate.parse(date);
+		return this.appoinmentsRepository.findByDateOrderByIdAffiliateAsc(horaCita);
+	}
+
+	
+	
 
 
 
