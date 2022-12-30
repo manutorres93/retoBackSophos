@@ -59,10 +59,9 @@ public class TestController {
 		}
 	
 	
-	@PutMapping ("/{id}")
-	public ResponseEntity<?> actualizarTest(@PathVariable ("id") int id, @RequestBody Test test){
-		
-		Test testActualizado= this.testServiceImpl.actualizarTest(id,test);
+	@PutMapping
+	public ResponseEntity<?> actualizarTest(@RequestBody Test test){
+		Test testActualizado= this.testServiceImpl.actualizarTest(test);
 		return ResponseEntity.status(HttpStatus.CREATED).body(testActualizado);
 		}
 	

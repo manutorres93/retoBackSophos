@@ -45,21 +45,9 @@ public class TestServiceImpl implements TestService {
 	}
 
 	@Override
-	public Test actualizarTest(int id,Test test) {
+	public Test actualizarTest(Test test) {
 		
-		Test existingTest = testRepository.findById(id).get();
-		
-		if (test.getName() != null) {
-			existingTest.setName(test.getName());
-		} 
-		
-		if (test.getDescription() != null) {
-			existingTest.setDescription(test.getDescription());
-		}
-			
-		
-		
-		return this.testRepository.save(existingTest);
+		return this.testRepository.save(test);
 	}
 
 	@Override

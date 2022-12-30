@@ -49,13 +49,13 @@ public class Appoinments {
 	@Column (name="hora_cita")
 	private LocalTime hora;
 	
-	@ManyToOne (fetch = FetchType.EAGER,  cascade = CascadeType.MERGE)
+	@ManyToOne (fetch = FetchType.EAGER/*,  cascade = CascadeType.MERGE*/)
 	@JoinColumn (name ="idTest")
 	//@JsonIncludeProperties ({"hibernateLazyInitializer", "handler"})
 	private Test idTest;
 	
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	@ManyToOne(fetch = FetchType.EAGER/*, cascade = CascadeType.MERGE*/)
 	@JoinColumn (name="idAffiliate")
 	//@JsonIncludeProperties ({"hibernateLazyInitializer", "handler"})
 	private Affiliates idAffiliate;

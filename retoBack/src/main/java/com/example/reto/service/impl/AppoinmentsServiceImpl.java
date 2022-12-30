@@ -41,9 +41,7 @@ public class AppoinmentsServiceImpl implements AppoinmentsService {
 	}
 
 	@Override
-	public Appoinments actualizarCita(Appoinments cita) {
-		
-		
+	public Appoinments actualizarCita(Appoinments cita) {		
 		return this.appoinmentsRepository.save(cita);
 	}
 
@@ -84,5 +82,4 @@ public class AppoinmentsServiceImpl implements AppoinmentsService {
 	}
 
 	
-
 

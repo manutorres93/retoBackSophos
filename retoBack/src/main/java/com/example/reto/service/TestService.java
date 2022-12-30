@@ -23,7 +23,7 @@ public interface TestService {
 	Test guardarTest(Test test);
 	
 	//Método que permite actualizar un test
-	Test actualizarTest (int id, Test test);
+	Test actualizarTest (Test test);
 	
 	
 	//Método que permite eliminar un test
