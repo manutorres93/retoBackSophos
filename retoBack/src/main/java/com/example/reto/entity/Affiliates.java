@@ -17,6 +17,7 @@ import lombok.Data;
  */
 
 
+
 @Data
 @Entity
 @Table (name= "affiliates")

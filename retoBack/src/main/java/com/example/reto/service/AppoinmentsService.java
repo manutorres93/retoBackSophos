@@ -14,6 +14,7 @@ import com.example.reto.entity.Appoinments;
  *Interface que contiene los metodos de logica de negocio para las citas
  *
  */
+
 public interface AppoinmentsService {
 	
 	/*Método que permite consultar listado de citas

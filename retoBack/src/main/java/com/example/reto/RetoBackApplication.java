@@ -8,6 +8,7 @@ public class RetoBackApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RetoBackApplication.class, args);
+		
 	}
 
 }

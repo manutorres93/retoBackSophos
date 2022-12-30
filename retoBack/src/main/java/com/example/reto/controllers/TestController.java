@@ -29,6 +29,7 @@ import com.example.reto.service.TestService;
 @RequestMapping ("/test")
 public class TestController {
 	
+	
 	@Autowired
 	private TestService testServiceImpl;
 	

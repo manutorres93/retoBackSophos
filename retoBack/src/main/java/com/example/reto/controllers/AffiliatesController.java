@@ -73,6 +73,7 @@ public class AffiliatesController {
 			return ResponseEntity.ok().build();
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+			
 		}
 		}
 	

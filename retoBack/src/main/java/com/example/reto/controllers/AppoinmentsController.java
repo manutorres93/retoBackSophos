@@ -58,6 +58,7 @@ public class AppoinmentsController {
 			return ResponseEntity.status(HttpStatus.CREATED).body(citaGuardada);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+			
 		}
 		
 	}

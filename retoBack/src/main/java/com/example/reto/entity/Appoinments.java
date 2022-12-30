@@ -60,6 +60,8 @@ public class Appoinments {
 	//@JsonIncludeProperties ({"hibernateLazyInitializer", "handler"})
 	private Affiliates idAffiliate;
 	
+	
+	
 
 	public Appoinments() {
 		super();

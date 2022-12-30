@@ -9,6 +9,7 @@ import com.example.reto.entity.Affiliates;
 
 
 
+
 /**
  * @author Lenovo
  *Interface que contiene el CRUD con Spring JPA para la tabla de afiliados

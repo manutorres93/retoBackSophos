@@ -15,6 +15,7 @@ import com.example.reto.entity.Affiliates;
  * Interface que contiene los metodos de logica de negocio para los afiliados
  *
  */
+
 public interface AffiliatesService {
 	
 	/*Método que permite consultar listado de afiliados

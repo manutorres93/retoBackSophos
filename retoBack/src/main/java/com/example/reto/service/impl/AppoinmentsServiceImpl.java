@@ -34,6 +34,7 @@ public class AppoinmentsServiceImpl implements AppoinmentsService {
 		return citasDataSource;
 	}
 
+	
 	@Override
 	public Appoinments guardarCita(Appoinments cita) {
 		return this.appoinmentsRepository.save(cita);
