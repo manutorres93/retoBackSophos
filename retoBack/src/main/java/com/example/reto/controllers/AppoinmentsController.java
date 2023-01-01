@@ -91,16 +91,22 @@ public class AppoinmentsController {
 	}
 	}
 	
-	@RequestMapping (value= "/idAffiliate/{idAffiliates}", method = RequestMethod.GET)
+	@RequestMapping (value=  "/idAffiliate/{idAffiliates}"/*,"/{idAffiliates}"}*/, method = RequestMethod.GET)
 	public ResponseEntity<?>listarrAfiliadoById (@PathVariable ("idAffiliates")Affiliates idAffiliates){
-		try {
+//		try {
 			List<Appoinments> citasPorAfiliado= this.appoinmentsServiceImpl.findByIdAffiliate(idAffiliates);
 			return ResponseEntity.ok(citasPorAfiliado);
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
-		
-		
+//		} catch (Exception e) {
+//			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//		}
+//		List<Appoinments> citasPorAfiliado= this.appoinmentsServiceImpl.findByIdAffiliate(idAffiliates);
+//		if (citasPorAfiliado.isEmpty()) {
+//			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//		}else {
+//		
+//		return ResponseEntity.ok(citasPorAfiliado);
+//		}
+//		
 	}
 	
 	
@@ -126,14 +132,14 @@ public class AppoinmentsController {
 	public ResponseEntity<?>listarPorFecha (@PathVariable String date)
 	
 	{
-        try {
+       // try {
         	List<Appoinments> citasPorFecha = this.appoinmentsServiceImpl.findByDateOrderByIdAffiliateAsc(date);
             
             return ResponseEntity.ok(citasPorFecha);
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
-		
+//		} catch (Exception e) {
+//			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//		}
+//		
         
     }
 		
