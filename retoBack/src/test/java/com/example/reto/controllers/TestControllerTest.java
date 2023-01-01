@@ -1,5 +1,6 @@
 package com.example.reto.controllers;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import java.util.Collections;
 import org.junit.jupiter.api.Assertions;
@@ -121,6 +122,23 @@ class TestControllerTest {
 		Assertions.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 	}
 	
+	@Test
+	void testEliminarTest() {
+
+		doNothing().when(testServiceMock).eliminarTest(anyInt());		
+		var response = testTest.eliminarTest(anyInt());
+		Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
+	}
+	
+	@Test
+	void testEliminarTestNotFound() {
+		
+		int numero=1;
+
+		doNothing().when(testServiceMock).eliminarTest(numero);		
+		var response = testTest.eliminarTest(anyInt());
+		Assertions.assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+	}
 
 
 }

@@ -2,6 +2,7 @@ package com.example.reto.controllers;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 import java.util.Collections;
@@ -123,6 +124,25 @@ class AffiliatesControllerTest {
 		var response = affiliatesTest.consultarPorId(anyInt());
 		Assertions.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 	}
+	
+	@Test
+	void testEliminarAfiliado() {
+
+		doNothing().when(affiliatesServiceMock).eliminarAfiliado(anyInt());		
+		var response = affiliatesTest.eliminarAfiliado(anyInt());
+		Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
+	}
+	
+	@Test
+	void testEliminarAfiliadoNoEncontrado() {
+		
+		int numero=1;
+
+		doNothing().when(affiliatesServiceMock).eliminarAfiliado(numero);		
+		var response = affiliatesTest.eliminarAfiliado(anyInt());
+		Assertions.assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+	}
+	
 
 
 }

@@ -196,7 +196,7 @@ class AppoinmentsControllerTest {
 	}
 	
 	@Test
-	void testEliminarCitaNoRealizada() {
+	void testEliminarCitaNoEncontrada() {
 		
 		int numero=1;
 
