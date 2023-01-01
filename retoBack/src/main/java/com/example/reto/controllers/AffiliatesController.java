@@ -38,7 +38,7 @@ public class AffiliatesController {
 			List<Affiliates> afiliadosConsultados = this.affiliatesServiceImlp.consultarAfiliados();
 			
 			if (afiliadosConsultados.isEmpty()) {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+				return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 			}else {
 				return ResponseEntity.ok(afiliadosConsultados);}
 	}
@@ -60,8 +60,14 @@ public class AffiliatesController {
 	
 	@PutMapping
 	public ResponseEntity<?> actualizarAfiliado(@RequestBody Affiliates affiliates){
-		Affiliates afiliadoActualizado= this.affiliatesServiceImlp.actualizarAfiliado(affiliates);
-		return ResponseEntity.status(HttpStatus.CREATED).body(afiliadoActualizado);
+		
+		try {
+			Affiliates afiliadoActualizado= this.affiliatesServiceImlp.actualizarAfiliado(affiliates);
+			return ResponseEntity.status(HttpStatus.CREATED).body(afiliadoActualizado);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		
 		}
 	
 	//@DeleteMapping

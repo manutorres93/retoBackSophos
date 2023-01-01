@@ -52,7 +52,7 @@ public class Appoinments {
 	@ManyToOne (fetch = FetchType.EAGER/*,  cascade = CascadeType.MERGE*/)
 	@JoinColumn (name ="idTest")
 	//@JsonIncludeProperties ({"hibernateLazyInitializer", "handler"})
-	private Test idTest;
+	private TestLab idTest;
 	
 	
 	@ManyToOne(fetch = FetchType.EAGER/*, cascade = CascadeType.MERGE*/)
@@ -67,7 +67,7 @@ public class Appoinments {
 		super();
 	}
 
-	public Appoinments(int id, LocalDate date, LocalTime hora, Test idTest, Affiliates idAffiliate) {
+	public Appoinments(int id, LocalDate date, LocalTime hora, TestLab idTest, Affiliates idAffiliate) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -100,11 +100,11 @@ public class Appoinments {
 		this.hora = hora;
 	}
 
-	public Test getIdTest() {
+	public TestLab getIdTest() {
 		return idTest;
 	}
 
-	public void setIdTest(Test idTest) {
+	public void setIdTest(TestLab idTest) {
 		this.idTest = idTest;
 	}
 

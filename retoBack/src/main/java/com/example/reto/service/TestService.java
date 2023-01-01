@@ -5,7 +5,7 @@ package com.example.reto.service;
 
 import java.util.List;
 
-import com.example.reto.entity.Test;
+import com.example.reto.entity.TestLab;
 
 
 /**
@@ -17,19 +17,19 @@ public interface TestService {
 	/*Método que permite consultar listado de test
 	 * @return listado de test
 	*/
-	List<Test> consultarTest();
+	List<TestLab> consultarTest();
 	
 	//Método que permite guardar un test	
 	
-	Test guardarTest(Test test);
+	TestLab guardarTest(TestLab test);
 	
 	//Método que permite actualizar un test
-	Test actualizarTest (Test test);
+	TestLab actualizarTest (TestLab test);
 	
 	
 	//Método que permite eliminar un test
 	void eliminarTest (int id);
 	
 	//Método que permite consultar un test por id
-	Test consultarById (int id);
+	TestLab consultarById (int id);
 }

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.reto.entity.Test;
+import com.example.reto.entity.TestLab;
 import com.example.reto.service.TestService;
 
 /**
@@ -37,9 +37,9 @@ public class TestController {
 	//@RequestMapping (value = "consultarTest", method = RequestMethod.GET)
 	public ResponseEntity<?> consultarTest() {
 		
-		List<Test> testConsultados = this.testServiceImpl.consultarTest();
+		List<TestLab> testConsultados = this.testServiceImpl.consultarTest();
 			if (testConsultados.isEmpty()) {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+				return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 			}else {
 			
 			return ResponseEntity.ok(testConsultados);
@@ -47,9 +47,9 @@ public class TestController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> guardarTest(@RequestBody Test test){
+	public ResponseEntity<?> guardarTest(@RequestBody TestLab test){
 		try {
-			Test testGuardado= this.testServiceImpl.guardarTest(test);
+			TestLab testGuardado= this.testServiceImpl.guardarTest(test);
 			return ResponseEntity.status(HttpStatus.CREATED).body(testGuardado);
 			
 		} catch (Exception e) {
@@ -61,9 +61,13 @@ public class TestController {
 	
 	
 	@PutMapping
-	public ResponseEntity<?> actualizarTest(@RequestBody Test test){
-		Test testActualizado= this.testServiceImpl.actualizarTest(test);
-		return ResponseEntity.status(HttpStatus.CREATED).body(testActualizado);
+	public ResponseEntity<?> actualizarTest(@RequestBody TestLab test){
+		try {
+			TestLab testActualizado= this.testServiceImpl.actualizarTest(test);
+			return ResponseEntity.status(HttpStatus.CREATED).body(testActualizado);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
 		}
 	
 	
@@ -93,7 +97,7 @@ public class TestController {
 		 * */
 		
 		try {
-			Test testById= this.testServiceImpl.consultarById(id);
+			TestLab testById= this.testServiceImpl.consultarById(id);
 			return ResponseEntity.status(HttpStatus.OK).body(testById);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

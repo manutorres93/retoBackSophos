@@ -22,7 +22,7 @@ import lombok.Data;
 @Entity
 @Table (name= "test")
 
-public class Test {
+public class TestLab {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -35,11 +35,11 @@ public class Test {
 	@Column(name= "description")
 	private String description;
 
-	public Test() {
+	public TestLab() {
 		super();
 	}
 
-	public Test(int id, String name, String description) {
+	public TestLab(int id, String name, String description) {
 		super();
 		this.id = id;
 		this.name = name;

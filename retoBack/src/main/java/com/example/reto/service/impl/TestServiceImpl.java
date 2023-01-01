@@ -10,7 +10,7 @@ import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.reto.entity.Test;
+import com.example.reto.entity.TestLab;
 import com.example.reto.repository.TestRepository;
 import com.example.reto.service.TestService;
 
@@ -33,21 +33,21 @@ public class TestServiceImpl implements TestService {
 	private TestRepository testRepository;
 	
 	@Override
-	public List<Test> consultarTest() {
+	public List<TestLab> consultarTest() {
 		
-		List <Test> testDataSource = StreamSupport.stream(
+		List <TestLab> testDataSource = StreamSupport.stream(
 				this.testRepository.findAll().spliterator(), false).collect(Collectors.toList());
 		
 		return testDataSource;
 	}
 
 	@Override
-	public Test guardarTest(Test test) {
+	public TestLab guardarTest(TestLab test) {
 		return this.testRepository.save(test);
 	}
 
 	@Override
-	public Test actualizarTest(Test test) {
+	public TestLab actualizarTest(TestLab test) {
 		
 		return this.testRepository.save(test);
 	}
@@ -60,7 +60,7 @@ public class TestServiceImpl implements TestService {
 
 	
 	@Override
-	public Test consultarById(int id) {
+	public TestLab consultarById(int id) {
 		
 		return this.testRepository.findById(id).get();
 				

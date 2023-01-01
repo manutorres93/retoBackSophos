@@ -40,7 +40,7 @@ public class AppoinmentsController {
 			List<Appoinments> citasConsultadas = this.appoinmentsServiceImpl.consultarCitas();
 			
 			if (citasConsultadas.isEmpty()) {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+				return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 			}else {
 			
 			return ResponseEntity.ok(citasConsultadas);
@@ -93,8 +93,14 @@ public class AppoinmentsController {
 	
 	@RequestMapping (value= "/idAffiliate/{idAffiliates}", method = RequestMethod.GET)
 	public ResponseEntity<?>listarrAfiliadoById (@PathVariable ("idAffiliates")Affiliates idAffiliates){
-		List<Appoinments> citasPorAfiliado= this.appoinmentsServiceImpl.findByIdAffiliate(idAffiliates);
-		return ResponseEntity.ok(citasPorAfiliado);
+		try {
+			List<Appoinments> citasPorAfiliado= this.appoinmentsServiceImpl.findByIdAffiliate(idAffiliates);
+			return ResponseEntity.ok(citasPorAfiliado);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		
+		
 	}
 	
 	
@@ -120,9 +126,14 @@ public class AppoinmentsController {
 	public ResponseEntity<?>listarPorFecha (@PathVariable String date)
 	
 	{
-        List<Appoinments> citasPorFecha = this.appoinmentsServiceImpl.findByDateOrderByIdAffiliateAsc(date);
-        
-        return ResponseEntity.ok(citasPorFecha);
+        try {
+        	List<Appoinments> citasPorFecha = this.appoinmentsServiceImpl.findByDateOrderByIdAffiliateAsc(date);
+            
+            return ResponseEntity.ok(citasPorFecha);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		
         
     }
 		
